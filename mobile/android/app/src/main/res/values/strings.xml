@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TraWe</string>
+    <string name="title_activity_main">TraWe</string>
+    <string name="package_name">in.trawe.app</string>
+    <string name="custom_url_scheme">in.trawe.app</string>
+</resources>

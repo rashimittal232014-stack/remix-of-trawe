@@ -1,0 +1,303 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: 'DM Sans', 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.375rem;
+  /* TraWe brand palette — deep navy + teal + terracotta (matched to logo) */
+  --background: oklch(0.99 0.004 80);
+  --foreground: oklch(0.19 0.04 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.04 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.04 255);
+  --primary: oklch(0.62 0.09 180);          /* teal from logo */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 200);
+  --secondary-foreground: oklch(0.22 0.04 255);
+  --muted: oklch(0.96 0.008 200);
+  --muted-foreground: oklch(0.46 0.03 240);
+  --accent: oklch(0.94 0.03 200);
+  --accent-foreground: oklch(0.22 0.04 255);
+  --destructive: oklch(0.58 0.18 40);       /* terracotta from logo */
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.012 220);
+  --input: oklch(0.9 0.012 220);
+  --ring: oklch(0.62 0.09 180);
+  --chart-1: oklch(0.62 0.09 180);           /* teal */
+  --chart-2: oklch(0.58 0.18 40);            /* terracotta */
+  --chart-3: oklch(0.30 0.05 255);           /* navy */
+  --chart-4: oklch(0.74 0.11 180);           /* light teal */
+  --chart-5: oklch(0.72 0.13 50);            /* warm accent */
+  --sidebar: oklch(0.19 0.04 255);           /* deep navy from logo */
+  --sidebar-foreground: oklch(0.92 0.01 200);
+  --sidebar-primary: oklch(0.62 0.09 180);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.25 0.04 255);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.28 0.04 255);
+  --sidebar-ring: oklch(0.62 0.09 180);
+}
+
+.dark {
+  --background: oklch(0.16 0.04 255);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.22 0.04 255);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.22 0.04 255);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.72 0.10 180);
+  --primary-foreground: oklch(0.16 0.04 255);
+  --secondary: oklch(0.28 0.04 255);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.28 0.04 255);
+  --muted-foreground: oklch(0.72 0.03 220);
+  --accent: oklch(0.28 0.05 200);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.66 0.19 40);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.10 180);
+  --chart-1: oklch(0.72 0.10 180);
+  --chart-2: oklch(0.66 0.19 40);
+  --chart-3: oklch(0.55 0.06 240);
+  --chart-4: oklch(0.80 0.11 180);
+  --chart-5: oklch(0.75 0.14 55);
+  --sidebar: oklch(0.16 0.04 255);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.72 0.10 180);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.24 0.04 255);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.72 0.10 180);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* ---------- Landing animations ---------- */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes float-slow {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-12px) rotate(1deg); }
+}
+@keyframes float-slower {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-8px) rotate(-1.5deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400% 0; }
+  100% { background-position: 400% 0; }
+}
+@keyframes blob {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%     { transform: translate(30px,-20px) scale(1.1); }
+  66%     { transform: translate(-20px,30px) scale(0.95); }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -200; }
+}
+@keyframes bar-grow {
+  from { transform: scaleY(0.1); }
+  to   { transform: scaleY(1); }
+}
+@keyframes ticker {
+  0%,100% { transform: translateY(0); opacity: 1; }
+  45%     { transform: translateY(-100%); opacity: 0; }
+  55%     { transform: translateY(100%); opacity: 0; }
+}
+
+.animate-marquee   { animation: marquee 40s linear infinite; }
+.animate-float     { animation: float-slow 7s ease-in-out infinite; }
+.animate-float-2   { animation: float-slower 9s ease-in-out infinite; }
+.animate-blob      { animation: blob 14s ease-in-out infinite; }
+.animate-dash      { animation: dash 6s linear infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+.bg-grid-light {
+  background-image:
+    linear-gradient(to right, rgba(15,23,42,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15,23,42,0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at top, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at top, black 40%, transparent 80%);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #7dd3c0 0%, #48a890 45%, #e8a07a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Dashboard brand parity (matches landing) ---------- */
+/* Serif titles only — pages inside the app shell get Instrument Serif for h1 */
+.app-shell main h1 {
+  font-family: "Instrument Serif", "Playfair Display", ui-serif, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+.app-shell main h1 em,
+.app-shell main h1 .italic {
+  font-style: italic;
+  color: #48a890;
+}
+
+/* Hairline glass tiles (used across dashboard panels) */
+.tile-hairline {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(0, 24, 48, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 12px 30px -18px rgba(0, 24, 48, 0.18);
+}
+
+/* Aurora hero strip — soft brand blobs behind the dashboard hero */
+.aurora-strip {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(60% 90% at 12% 10%, rgba(72, 168, 144, 0.22), transparent 60%),
+    radial-gradient(50% 80% at 88% 20%, rgba(192, 72, 24, 0.14), transparent 65%),
+    radial-gradient(90% 120% at 50% 120%, rgba(0, 24, 48, 0.10), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6f9fb 100%);
+}
+.aurora-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(0, 24, 48, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 24, 48, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at top, black 40%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Brand-styled CTA button (pill, teal, subtle glow) */
+.btn-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.55rem 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(180deg, #4fb69c 0%, #48a890 100%);
+  border: 1px solid rgba(0, 24, 48, 0.12);
+  box-shadow: 0 8px 22px -10px rgba(72, 168, 144, 0.55);
+  transition: transform 120ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+.btn-brand:hover { transform: translateY(-1px); filter: brightness(1.03); box-shadow: 0 10px 26px -10px rgba(72, 168, 144, 0.7); }
+.btn-brand-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #001830;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 24, 48, 0.12);
+  backdrop-filter: blur(8px);
+  transition: background 160ms ease, border-color 160ms ease;
+}
+.btn-brand-ghost:hover { background: #ffffff; border-color: rgba(0, 24, 48, 0.22); }
+.btn-brand-danger {
+  background: linear-gradient(180deg, #d05a2a 0%, #c04818 100%);
+  box-shadow: 0 8px 22px -10px rgba(192, 72, 24, 0.55);
+}

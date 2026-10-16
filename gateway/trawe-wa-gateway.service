@@ -1,0 +1,24 @@
+[Unit]
+Description=TraWe WhatsApp Gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/trawe-wa-gateway
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+Environment=PORT=8787
+Environment=TRAWE_WA_DATA_DIR=/var/lib/trawe-wa/sessions
+# Keep the real values in /etc/trawe-wa.env (chmod 600):
+#   TRAWE_WA_GATEWAY_TOKEN=...
+#   TRAWE_WA_ENC_KEY=...
+EnvironmentFile=/etc/trawe-wa.env
+User=trawe
+Group=trawe
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

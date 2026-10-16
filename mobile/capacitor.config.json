@@ -1,0 +1,33 @@
+{
+  "appId": "in.trawe.app",
+  "appName": "TraWe",
+  "webDir": "www",
+  "server": {
+    "url": "https://app.trawe.in",
+    "cleartext": false,
+    "androidScheme": "https",
+    "allowNavigation": ["app.trawe.in", "trawe.in", "*.trawe.in", "*.supabase.co", "*.razorpay.com", "accounts.google.com"]
+  },
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#0F2A4A",
+    "webContentsDebuggingEnabled": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "launchAutoHide": true,
+      "launchFadeOutDuration": 400,
+      "backgroundColor": "#0F2A4AFF",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "splashFullScreen": true,
+      "splashImmersive": false,
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#0F2A4A"
+    }
+  }
+}
